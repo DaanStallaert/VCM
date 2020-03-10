@@ -6,14 +6,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class GameDB {
-    ArrayList<Game> games;
-
-    public Game cod = new Game("Modern Warfare", "Activision", LocalDate.of(2019, 9,2), 4.5, 18, 60);
-    public Game fallout = new Game("Fallout 4", "Bethesda", LocalDate.of(2017, 5, 19), 3.5, 18, 40);
-    public Game fifa = new Game("Fifa 20", "EA Sports", LocalDate.of(2019, 10, 10), 4, 3, 50);
+    ArrayList<Game> games = new ArrayList<>();
 
     public GameDB() {
-        games = new ArrayList<>();
+        Game cod = new Game("Modern Warfare", "Activision", LocalDate.of(2019, 9,2), 4.5, 18, 60);
+        Game fallout = new Game("Fallout 4", "Bethesda", LocalDate.of(2017, 5, 19), 3.5, 18, 40);
+        Game fifa = new Game("Fifa 20", "EA Sports", LocalDate.of(2019, 10, 10), 4, 3, 50);
         games.add(cod);
         games.add(fallout);
         games.add(fifa);

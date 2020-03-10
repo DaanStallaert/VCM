@@ -10,7 +10,6 @@
 <%-- Created by IntelliJ IDEA. --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<% ArrayList<Game> games = (ArrayList<Game>)request.getAttribute("games"); %>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -45,20 +44,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <%
-                for (Game game:games) {
-            %>
-            <td><%= game.getTitel()%></td>
-            <td><%= game.getOntwikkelaar()%></td>
-            <td><%= game.getRelease()%></td>
-            <td><%= game.getBeoordeling()%>/5</td>
-            <td><%= game.getLeeftijd()%>+</td>
-            <td><%= game.getPrijs()%></td>
-            <%
-                }
-            %>
-        </tr>
+        <c:forEach var="game" items="${games}">
+            <tr>
+                <td>${game.getTitel()}</td>
+                <td>${game.getOntwikkelaar()}</td>
+                <td>${game.getRelease()}</td>
+                <td>${game.getBeoordeling()}/5</td>
+                <td>${game.getLeeftijd()}+</td>
+                <td>${game.getPrijs()}</td>
+                <td><a href="gameToevoegen.jsp">Pas aan</a></td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
     <p>
