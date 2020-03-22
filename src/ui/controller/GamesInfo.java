@@ -30,6 +30,26 @@ public class GamesInfo extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        String destination = "gameToevoegen.jsp";
+
+        String titel = request.getParameter("titel");
+        String ontwikkelaar = request.getParameter("ontwikkelaar");
+        String release = request.getParameter("release");
+        String score = request.getParameter("score");
+        String leeftijd = request.getParameter("leeftijd");
+        String prijs = request.getParameter("prijs");
+
+        if(titel != null && ontwikkelaar != null && release != null){
+            if(!titel.isEmpty() && !ontwikkelaar.isEmpty() && !release.isEmpty() && score.isEmpty() && leeftijd.isEmpty() && prijs.isEmpty()){
+                Game game = new Game(titel, ontwikkelaar, LocalDate.parse(release), Double.parseDouble(score), Integer.parseInt(leeftijd), Integer.parseInt(prijs));
+                games.voegGameToe(game);
+                request.setAttribute("alleGames", games.getGames());
+                request.setAttribute("berekenWaarde", games.berekenBesteGame());
+                destination = "library.jsp";
+            }
+        }
+
+        RequestDispatcher view = request.getRequestDispatcher(destination);
+        view.forward(request, response);
     }
 }

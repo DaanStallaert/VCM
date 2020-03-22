@@ -52,7 +52,8 @@ h4 {
 }
 
 p {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
+    margin-left: 5px;
 }
 
 strong {

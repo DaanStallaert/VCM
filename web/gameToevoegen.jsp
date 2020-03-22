@@ -28,30 +28,30 @@
     </nav>
 </header>
 <main>
-    <form method="post" action="library.jsp" novalidate>
+    <form method="post" action="GamesInfo" novalidate>
         <p>
-            <label for="title">Titel*</label>
-            <input type="text" id="title" required>
+            <label for="titel">Titel*</label>
+            <input type="text" id="titel" name="titel" required>
         </p>
         <p>
             <label for="ontwikkelaar">Ontwikkelaar*</label>
-            <input type="text" id="ontwikkelaar" required>
+            <input type="text" id="ontwikkelaar" name="ontwikkelaar" required>
         </p>
         <p>
-            <label for="releasedate">Release*</label>
-            <input type="date" id="releasedate" required>
+            <label for="release">Release*</label>
+            <input type="date" id="release" name="release" required>
         </p>
         <p>
-            <label for="score">Beoordeling</label>
-            <input type="number" id="score" placeholder="Op 5" min="1" max="5">
+            <label for="score">Score</label>
+            <input type="number" id="score" name="score" placeholder="Op 5" min="1" max="5">
         </p>
         <p>
-            <label for="age">Leeftijdcategorie</label>
-            <input type="number" id="age">
+            <label for="leeftijd">Leeftijdcategorie</label>
+            <input type="number" id="leeftijd" name="leeftijd">
         </p>
         <p>
             <label for="prijs">Prijs*</label>
-            <input type="number" id="prijs" required>
+            <input type="number" id="prijs" name="prijs" required>
         </p>
         <p>
             <input type="submit" value="Toevoegen">

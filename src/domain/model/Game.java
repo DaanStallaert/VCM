@@ -5,15 +5,15 @@ import java.time.LocalDate;
 public class Game {
     String titel, ontwikkelaar;
     int leeftijd, prijs;
-    double beoordeling;
+    double score;
     LocalDate release;
 
 
-    public Game(String titel, String ontwikkelaar, LocalDate release, double beoordeling, int leeftijd, int prijs) {
+    public Game(String titel, String ontwikkelaar, LocalDate release, double score, int leeftijd, int prijs) {
         setTitel(titel);
         setOntwikkelaar(ontwikkelaar);
         setRelease(release);
-        setBeoordeling(beoordeling);
+        setScore(score);
         setLeeftijd(leeftijd);
         setPrijs(prijs);
     }
@@ -40,15 +40,15 @@ public class Game {
         return ontwikkelaar;
     }
 
-    public void setBeoordeling(double beoordeling) {
-        if(beoordeling > 5 || beoordeling < 0){
+    public void setScore(double score) {
+        if(score > 5 || score < 0){
             throw new IllegalArgumentException();
         }
-        this.beoordeling = beoordeling;
+        this.score = score;
     }
 
-    public double getBeoordeling() {
-        return beoordeling;
+    public double getScore() {
+        return score;
     }
 
     public void setLeeftijd(int leeftijd) {
