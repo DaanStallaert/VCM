@@ -23,7 +23,7 @@
         <ul>
             <li><a href="index.jsp">Home</a></li>
             <li><a id="markeer" href="gameToevoegen.jsp">Game toevoegen</a></li>
-            <li><a href="library.jsp">Library</a></li>
+            <li><a href="GamesInfo">Library</a></li>
         </ul>
     </nav>
 </header>

@@ -26,7 +26,7 @@
         <ul>
             <li><a href="index.jsp">Home</a></li>
             <li><a href="gameToevoegen.jsp">Game toevoegen</a></li>
-            <li><a id="markeer" href="library.jsp">Library</a></li>
+            <li><a id="markeer" href="GamesInfo">Library</a></li>
         </ul>
     </nav>
 </header>
@@ -63,7 +63,7 @@
         </tbody>
     </table>
     <p>
-        Het best beoordeelde spel is: <%= ((Game) request.getAttribute("berekendeWaarde")) %>
+        Het best beoordeelde spel is: <%= ((String) request.getAttribute("berekenWaarde")) %>
     </p>
 </main>
 <footer>

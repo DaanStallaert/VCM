@@ -22,9 +22,6 @@ public class GameDB {
     public String berekenBesteGame(){
         String result = "";
         double max = 0;
-        if(games.size() == 0){
-            return null;
-        }
         for(Game g:games){
             if(g.getBeoordeling() > max){
                 max = g.getBeoordeling();

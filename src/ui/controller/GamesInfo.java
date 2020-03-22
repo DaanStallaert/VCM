@@ -28,4 +28,8 @@ public class GamesInfo extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher("library.jsp");
         view.forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 }

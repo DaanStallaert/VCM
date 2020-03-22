@@ -51,6 +51,10 @@ h4 {
     text-align: center;
 }
 
+p {
+    margin-bottom: 15px;
+}
+
 strong {
     font-weight: bold;
 }
@@ -143,6 +147,7 @@ table, td, th {
 table {
     table-layout: fixed;
     box-sizing: border-box;
+    margin-bottom: 15px;
 }
 
 thead>tr>th {
