@@ -15,10 +15,14 @@ import java.time.LocalDate;
 @WebServlet("/GamesInfo")
 public class GamesInfo extends HttpServlet {
 
-    GameDB games = new GameDB();
+    private GameDB games = new GameDB();
+
+    public GamesInfo(){
+        super();
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("games", games.getGames());
+        request.setAttribute("alleGames", games.getGames());
         request.setAttribute("berekenWaarde", games.berekenBesteGame());
 
         RequestDispatcher view = request.getRequestDispatcher("library.jsp");

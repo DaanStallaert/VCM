@@ -28,7 +28,7 @@
     </nav>
 </header>
 <main>
-    <form action="library.jsp">
+    <form method="post" action="library.jsp" novalidate>
         <p>
             <label for="title">Titel*</label>
             <input type="text" id="title" required>
@@ -39,7 +39,7 @@
         </p>
         <p>
             <label for="releasedate">Release*</label>
-            <input type="number" id="releasedate" placeholder="vb. oktober 2019" required>
+            <input type="date" id="releasedate" required>
         </p>
         <p>
             <label for="score">Beoordeling</label>

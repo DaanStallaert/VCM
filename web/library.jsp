@@ -44,21 +44,26 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="game" items="${games}">
-            <tr>
-                <td>${game.getTitel()}</td>
-                <td>${game.getOntwikkelaar()}</td>
-                <td>${game.getRelease()}</td>
-                <td>${game.getBeoordeling()}/5</td>
-                <td>${game.getLeeftijd()}+</td>
-                <td>${game.getPrijs()}</td>
-                <td><a href="gameToevoegen.jsp">Pas aan</a></td>
-            </tr>
-        </c:forEach>
+        <%
+            ArrayList<Game> alleGames = (ArrayList<Game>) request.getAttribute("alleGames");
+            for(Game game : alleGames) {
+        %>
+        <tr>
+            <td><%=game.getTitel()%></td>
+            <td><%=game.getOntwikkelaar()%></td>
+            <td><%=game.getRelease()%></td>
+            <td><%=game.getBeoordeling()%></td>
+            <td><%=game.getLeeftijd()%></td>
+            <td><%=game.getPrijs()%></td>
+            <td><a href="gameToevoegen.jsp">Pas aan</a></td>
+        </tr>
+        <%
+            }
+        %>
         </tbody>
     </table>
     <p>
-        Het best beoordeelde spel is: <%= ((String) request.getAttribute("berekendeWaarde")) %>
+        Het best beoordeelde spel is: <%= ((Game) request.getAttribute("berekendeWaarde")) %>
     </p>
 </main>
 <footer>
