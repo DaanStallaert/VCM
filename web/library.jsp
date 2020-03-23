@@ -18,18 +18,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-    <h1>
-        <a href="index.jsp">Steam</a>
-    </h1>
-    <nav>
-        <ul>
-            <li><a href="index.jsp">Home</a></li>
-            <li><a href="gameToevoegen.jsp">Game toevoegen</a></li>
-            <li><a id="markeer" href="GamesInfo">Library</a></li>
-        </ul>
-    </nav>
-</header>
+<%@include file="header.jsp"%>
 <main>
     <table>
         <thead>
@@ -66,8 +55,6 @@
         Het best beoordeelde spel is: <strong><%= ((String) request.getAttribute("berekenWaarde")) %></strong>
     </p>
 </main>
-<footer>
-    <p>Webontwikkeling 2 - 2020 || Copyright © 2019 Daan Stallaert</p>
-</footer>
+<%@include file="footer.jsp"%>
 </body>
 </html>

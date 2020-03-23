@@ -85,10 +85,6 @@ nav ul li a:hover {
     transition-duration: 0.5s;
 }
 
-#markeer {
-    background-color: #0d1264;
-    color: white;
-}
 
 /* index */
 
@@ -209,14 +205,8 @@ footer>p {
         border: none;
     }
 
-    td:nth-of-type(1), td:nth-of-type(2), td:nth-of-type(3), td:nth-of-type(4)  {
+    td:not(:last-child){
         display: inline-block;
-        width: auto;
-    }
-
-    td:nth-of-type(5), td:nth-of-type(6) {
-        display: inline-block;
-        width: auto;
     }
 
     td:nth-of-type(1) {
