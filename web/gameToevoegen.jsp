@@ -17,7 +17,7 @@
 <body>
 <%@include file="header.jsp"%>
 <main>
-    <form method="post" action="GamesInfo" novalidate>
+    <form method="post" action="GamesInfo?command=voegToe" novalidate>
         <p>
             <label for="titel">Titel*</label>
             <input type="text" id="titel" name="titel" required>

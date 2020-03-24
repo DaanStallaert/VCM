@@ -10,6 +10,9 @@
 <%@include file="header.jsp"%>
 <main id="index">
   <p>Een overzicht van al mijn games. Ik kan ze zelf beoordelen, de prijs bijhouden, ... </p>
+  <p>
+    Het best beoordeelde spel is: <strong><%= ((String) request.getAttribute("besteScore")) %></strong>
+  </p>
 </main>
 <%@include file="footer.jsp"%>
 </body>

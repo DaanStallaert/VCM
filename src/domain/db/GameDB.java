@@ -45,4 +45,17 @@ public class GameDB {
         }
         games.add(g);
     }
+
+    public Game vindGame(String titel){
+        for(Game g:games){
+            if(titel.equals(g.getTitel())){
+                return g;
+            }
+        }
+        return null;
+    }
+
+    public void verwijderGame(Game g){
+        games.remove(g);
+    }
 }

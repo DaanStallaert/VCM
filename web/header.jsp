@@ -8,13 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
     <h1>
-        <a href="index.jsp">Steam</a>
+        <a href="GamesInfo?command=index">Steam</a>
     </h1>
     <nav>
         <ul>
-            <li><a href="index.jsp">Home</a></li>
+            <li><a href="GamesInfo?command=index">Home</a></li>
             <li><a href="gameToevoegen.jsp">Game toevoegen</a></li>
-            <li><a href="GamesInfo">Library</a></li>
+            <li><a href="GamesInfo?command=library">Library</a></li>
+            <li><a href="zoek.jsp">Zoek</a></li>
         </ul>
     </nav>
 </header>
