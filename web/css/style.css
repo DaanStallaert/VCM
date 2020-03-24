@@ -74,7 +74,7 @@ nav ul li a {
     display: block;
     text-decoration: none;
     text-align: center;
-    font-size: 150%;
+    font-size: 120%;
     padding: 37px;
     color: white;
 }
@@ -260,7 +260,7 @@ footer>p {
         display: block;
         text-decoration: none;
         text-align: center;
-        font-size: 130%;
+        font-size: 105%;
         color: white;
     }
 }

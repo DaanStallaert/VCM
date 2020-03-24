@@ -10,7 +10,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Home | Steam</title>
+    <title>Verwijder | Steam</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
