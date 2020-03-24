@@ -102,11 +102,11 @@ label {
     display: block;
 }
 
-label, input, textarea {
+label, input {
     display: inline-block;
 }
 
-input, textarea {
+input {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -121,8 +121,8 @@ input, textarea {
 
 input[type="submit"] {
     max-width: 457px;
-    margin: auto;
     grid-area: inputfield;
+    margin: auto auto 10px;
 }
 
 #buttons {

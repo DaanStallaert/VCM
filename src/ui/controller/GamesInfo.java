@@ -58,8 +58,9 @@ public class GamesInfo extends HttpServlet {
                 break;
             case "bevestigVerwijder":
                 destination = bevestigVerwijder(request);
+                break;
             default :
-                destination = "index.jsp";
+                destination = index(request);
         }
         request.getRequestDispatcher(destination).forward(request, response);
     }
@@ -125,10 +126,7 @@ public class GamesInfo extends HttpServlet {
             String game = request.getParameter("titel");
             Game g = games.vindGame(game);
             games.verwijderGame(g);
-            return library(request);
         }
-        else{
-            return index(request);
-        }
+        return library(request);
     }
 }

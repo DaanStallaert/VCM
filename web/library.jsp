@@ -23,12 +23,12 @@
     <table>
         <thead>
         <tr>
-            <th>Titel</th>
-            <th>Ontwikkelaar</th>
-            <th>Release</th>
-            <th>Score</th>
-            <th>Leeftijd</th>
-            <th>Prijs</th>
+            <th>Titel:</th>
+            <th>Ontwikkelaar:</th>
+            <th>Release:</th>
+            <th>Score:</th>
+            <th>Leeftijd:</th>
+            <th>Prijs:</th>
             <th>Pas aan</th>
             <th>Verwijder</th>
         </tr>
