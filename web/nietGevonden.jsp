@@ -13,13 +13,17 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="zoek"/>
+</jsp:include>
 <body>
 <main>
     <p>
-        Helaas, deze game is niet gevonden. <a href="GamesInfo?command=opnieuwZoeken">Opnieuw zoeken.</a>
+        Helaas, <strong>${titel}</strong> werd niet gevonden. <a href="GamesInfo?command=opnieuwZoeken">Opnieuw zoeken.</a>
     </p>
 </main>
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp">
+    <jsp:param name="actual" value="zoek"/>
+</jsp:include>
 </body>
 </html>

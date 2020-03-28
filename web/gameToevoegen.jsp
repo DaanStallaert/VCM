@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="gameToevoegen"/>
+</jsp:include>
 <main>
     <form method="post" action="GamesInfo?command=voegToe" novalidate>
         <p>
@@ -47,6 +49,8 @@
         </p>
     </form>
 </main>
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp">
+    <jsp:param name="actual" value="gameToevoegen"/>
+</jsp:include>
 </body>
 </html>

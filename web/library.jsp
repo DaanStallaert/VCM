@@ -1,13 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="domain.model.Game" %>
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: daans
-  Date: 5/03/2020
-  Time: 15:57
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%-- Created by IntelliJ IDEA. --%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="nl">
@@ -18,7 +11,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="library"/>
+</jsp:include>
 <main>
     <table>
         <thead>
@@ -34,26 +29,23 @@
         </tr>
         </thead>
         <tbody>
-        <%
-            ArrayList<Game> alleGames = (ArrayList<Game>) request.getAttribute("alleGames");
-            for(Game game : alleGames) {
-        %>
+        <c:forEach var="game" items="${alleGames}">
         <tr>
-            <td><%=game.getTitel()%></td>
-            <td><%=game.getOntwikkelaar()%></td>
-            <td><%=game.getRelease()%></td>
-            <td><%=game.getScore()%></td>
-            <td><%=game.getLeeftijd()%></td>
-            <td><%=game.getPrijs()%></td>
+            <td>${game.titel}</td>
+            <td>${game.ontwikkelaar}</td>
+            <td>${game.release}</td>
+            <td>${game.score}/5.0</td>
+            <td>${game.leeftijd}+</td>
+            <td>€${game.prijs}</td>
             <td><a href="gameToevoegen.jsp">Pas aan</a></td>
-            <td><a href="GamesInfo?command=verwijder&titel=<%=game.getTitel()%>">Verwijder</a></td>
+            <td><a href="GamesInfo?command=verwijder&titel=${game.titel}">Verwijder</a></td>
         </tr>
-        <%
-            }
-        %>
+        </c:forEach>
         </tbody>
     </table>
 </main>
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp">
+    <jsp:param name="actual" value="library"/>
+</jsp:include>
 </body>
 </html>

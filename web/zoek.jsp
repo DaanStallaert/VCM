@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="zoek"/>
+</jsp:include>
 <main>
     <form action="GamesInfo" method="get" novalidate>
         <p>
@@ -28,6 +30,8 @@
         </p>
     </form>
 </main>
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp">
+    <jsp:param name="actual" value="zoek"/>
+</jsp:include>
 </body>
 </html>

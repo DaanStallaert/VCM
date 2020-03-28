@@ -12,10 +12,14 @@
     </h1>
     <nav>
         <ul>
-            <li><a href="GamesInfo?command=index">Home</a></li>
-            <li><a href="gameToevoegen.jsp">Game toevoegen</a></li>
-            <li><a href="GamesInfo?command=library">Library</a></li>
-            <li><a href="zoek.jsp">Zoek</a></li>
+            <li ${param.actual eq 'index'?"id = actual":""}>
+                <a href="GamesInfo?command=index">Home</a></li>
+            <li ${param.actual eq 'gameToevoegen'?"id = actual":""}>
+                <a href="GamesInfo?command=gameToevoegen">Game toevoegen</a></li>
+            <li ${param.actual eq 'library'?"id = actual":""}>
+                <a href="GamesInfo?command=library">Library</a></li>
+            <li ${param.actual eq 'zoek'?"id = actual":""}>
+                <a href="GamesInfo?command=zoekPagina">Zoek</a></li>
         </ul>
     </nav>
 </header>

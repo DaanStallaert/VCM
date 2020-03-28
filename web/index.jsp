@@ -7,13 +7,17 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+  <jsp:param name="actual" value="index"/>
+</jsp:include>
 <main id="index">
   <p>Een overzicht van al mijn games. Ik kan ze zelf beoordelen, de prijs bijhouden, ... </p>
   <p>
-    Het best beoordeelde spel is: <strong><%= ((String) request.getAttribute("besteScore")) %></strong>
+    Het best beoordeelde spel is: <strong>${besteScore}</strong>
   </p>
 </main>
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp">
+  <jsp:param name="actual" value="index"/>
+</jsp:include>
 </body>
 </html>

@@ -85,6 +85,10 @@ nav ul li a:hover {
     transition-duration: 0.5s;
 }
 
+li#actual {
+    background-color: #0d1264;
+}
+
 
 /* index */
 

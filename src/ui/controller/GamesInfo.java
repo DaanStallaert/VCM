@@ -44,6 +44,12 @@ public class GamesInfo extends HttpServlet {
             case "library" :
                 destination = library(request);
                 break;
+            case "gameToevoegen" :
+            destination = gameToevoegen(request);
+                break;
+            case "zoekPagina" :
+            destination = zoekPagina(request);
+                break;
             case "zoek" :
                 destination = zoek(request);
                 break;
@@ -75,6 +81,14 @@ public class GamesInfo extends HttpServlet {
         return "library.jsp";
     }
 
+    private String gameToevoegen(HttpServletRequest request){
+        return "gameToevoegen.jsp";
+    }
+
+    private String zoekPagina(HttpServletRequest request){
+        return "zoek.jsp";
+    }
+
     private String zoek(HttpServletRequest request){
         String titel = request.getParameter("titel");
 
@@ -84,6 +98,7 @@ public class GamesInfo extends HttpServlet {
         else{
             Game gevondenGame = games.vindGame(titel);
             if(gevondenGame == null){
+                request.setAttribute("titel", titel);
                 return "nietGevonden.jsp";
             }
             else{
@@ -117,6 +132,8 @@ public class GamesInfo extends HttpServlet {
     }
 
     private String verwijder(HttpServletRequest request){
+        String titel = request.getParameter("titel");
+        request.setAttribute("titel", titel);
         return "verwijder.jsp";
     }
 

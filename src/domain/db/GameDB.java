@@ -19,6 +19,10 @@ public class GameDB {
         return games;
     }
 
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
+    }
+
     public String berekenBesteGame(){
         String result = "";
         double max = 0;
@@ -47,8 +51,9 @@ public class GameDB {
     }
 
     public Game vindGame(String titel){
+        titel = titel.replaceAll("\\s+", "").toLowerCase();
         for(Game g:games){
-            if(titel.equals(g.getTitel())){
+            if(titel.equals(g.getTitel().replaceAll("\\s+", "").toLowerCase())){
                 return g;
             }
         }

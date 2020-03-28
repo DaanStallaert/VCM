@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="VCM" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../Brol/jakarta-taglibs-standard-1.1.2/standard-doc.war" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../Brol/jakarta-taglibs-standard-1.1.2/standard-examples.war" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../Brol/jstl-1.2.jar/jstl-1.2.jar" />
+        </element>
       </element>
     </root>
   </artifact>

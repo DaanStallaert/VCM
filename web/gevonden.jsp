@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="zoek"/>
+</jsp:include>
 <body>
 <main>
     <table>
@@ -32,22 +34,21 @@
         </tr>
         </thead>
         <tbody>
-        <%
-            Game gevondenGame = (Game) request.getAttribute("gevondenGame");
-        %>
         <tr>
-            <td><%=gevondenGame.getTitel()%></td>
-            <td><%=gevondenGame.getOntwikkelaar()%></td>
-            <td><%=gevondenGame.getRelease()%></td>
-            <td><%=gevondenGame.getScore()%></td>
-            <td><%=gevondenGame.getLeeftijd()%></td>
-            <td><%=gevondenGame.getPrijs()%></td>
+            <td>${gevondenGame.titel}</td>
+            <td>${gevondenGame.ontwikkelaar}</td>
+            <td>${gevondenGame.release}</td>
+            <td>${gevondenGame.score}</td>
+            <td>${gevondenGame.leeftijd}</td>
+            <td>${gevondenGame.prijs}</td>
             <td><a href="gameToevoegen.jsp">Pas aan</a></td>
-            <td><a href="GamesInfo?command=verwijder&titel=<%=gevondenGame.getTitel()%>">Verwijder</a></td>
+            <td><a href="GamesInfo?command=verwijder&titel=${gevondenGame.titel}">Verwijder</a></td>
         </tr>
         </tbody>
     </table>
 </main>
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp">
+    <jsp:param name="actual" value="zoek"/>
+</jsp:include>
 </body>
 </html>

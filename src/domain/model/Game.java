@@ -1,6 +1,7 @@
 package domain.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Game {
     String titel, ontwikkelaar;
@@ -16,6 +17,10 @@ public class Game {
         setScore(score);
         setLeeftijd(leeftijd);
         setPrijs(prijs);
+    }
+
+    public Game(){
+
     }
 
     public void setTitel(String titel) {
