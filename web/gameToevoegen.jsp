@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: daans
@@ -19,30 +20,39 @@
     <jsp:param name="actual" value="gameToevoegen"/>
 </jsp:include>
 <main>
+    <c:if test="${not empty errors}">
+        <div class="alert alert-danger">
+            <ul>
+                <c:forEach items="${errors}" var="error">
+                    <li>${error}</li>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
     <form method="post" action="GamesInfo?command=voegToe" novalidate>
         <p>
             <label for="titel">Titel*</label>
-            <input type="text" id="titel" name="titel" required>
+            <input type="text" id="titel" name="titel" value="${vorigeTitel}" required>
         </p>
         <p>
             <label for="ontwikkelaar">Ontwikkelaar*</label>
-            <input type="text" id="ontwikkelaar" name="ontwikkelaar" required>
+            <input type="text" id="ontwikkelaar" name="ontwikkelaar" value="${vorigeOntwikkelaar}" required>
         </p>
         <p>
             <label for="release">Release*</label>
-            <input type="date" id="release" name="release" required>
+            <input type="date" id="release" name="release" value="${vorigeRelease}" required>
         </p>
         <p>
             <label for="score">Score</label>
-            <input type="number" id="score" name="score" placeholder="Op 5" min="1" max="5">
+            <input type="number" id="score" name="score" value="${vorigeScore}" placeholder="Op 5" min="1" max="5">
         </p>
         <p>
-            <label for="leeftijd">Leeftijdcategorie</label>
-            <input type="number" id="leeftijd" name="leeftijd">
+            <label for="leeftijd">Leeftijdcategorie*</label>
+            <input type="number" id="leeftijd" name="leeftijd" value="${vorigeLeeftijd}" required>
         </p>
         <p>
             <label for="prijs">Prijs*</label>
-            <input type="number" id="prijs" name="prijs" required>
+            <input type="number" id="prijs" name="prijs" value="${vorigePrijs}" required>
         </p>
         <p>
             <input type="submit" value="Toevoegen">

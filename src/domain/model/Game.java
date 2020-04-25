@@ -1,5 +1,7 @@
 package domain.model;
 
+import domain.DomainException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -25,7 +27,7 @@ public class Game {
 
     public void setTitel(String titel) {
         if(titel == null || titel.trim().isEmpty()){
-            throw new IllegalArgumentException();
+            throw new DomainException("Titel mag niet leeg zijn.");
         }
         this.titel = titel;
     }
@@ -36,7 +38,7 @@ public class Game {
 
     public void setOntwikkelaar(String ontwikkelaar) {
         if(ontwikkelaar == null || ontwikkelaar.trim().isEmpty()){
-            throw new IllegalArgumentException();
+            throw new DomainException("Ontwikkelaar mag niet leeg zijn.");
         }
         this.ontwikkelaar = ontwikkelaar;
     }
@@ -47,7 +49,7 @@ public class Game {
 
     public void setScore(double score) {
         if(score > 5 || score < 0){
-            throw new IllegalArgumentException();
+            throw new DomainException("Score moet tussen 0 en 5 liggen.");
         }
         this.score = score;
     }
@@ -58,7 +60,7 @@ public class Game {
 
     public void setLeeftijd(int leeftijd) {
         if(leeftijd < 1){
-            throw new IllegalArgumentException();
+            throw new DomainException("Leeftijd moet positief zijn");
         }
         this.leeftijd = leeftijd;
     }
@@ -69,7 +71,7 @@ public class Game {
 
     public void setPrijs(int prijs) {
         if(prijs < 0){
-            throw new IllegalArgumentException();
+            throw new DomainException("Prijs moet positief zijn.");
         }
         this.prijs = prijs;
     }
@@ -80,7 +82,7 @@ public class Game {
 
     public void setRelease(LocalDate release) {
         if(release.isAfter(LocalDate.now())){
-            throw new IllegalArgumentException();
+            throw new DomainException("Release kan niet in de toekomst zijn.");
         }
         this.release = release;
     }

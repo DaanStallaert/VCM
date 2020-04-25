@@ -24,7 +24,6 @@
             <th>Score:</th>
             <th>Leeftijd:</th>
             <th>Prijs:</th>
-            <th>Pas aan</th>
             <th>Verwijder</th>
         </tr>
         </thead>
@@ -34,10 +33,9 @@
             <td>${game.titel}</td>
             <td>${game.ontwikkelaar}</td>
             <td>${game.release}</td>
-            <td>${game.score}/5.0</td>
+            <td>${game.score}/5</td>
             <td>${game.leeftijd}+</td>
             <td>€${game.prijs}</td>
-            <td><a href="gameToevoegen.jsp">Pas aan</a></td>
             <td><a href="GamesInfo?command=verwijder&titel=${game.titel}">Verwijder</a></td>
         </tr>
         </c:forEach>

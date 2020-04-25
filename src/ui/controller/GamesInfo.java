@@ -1,5 +1,6 @@
 package ui.controller;
 
+import domain.DomainException;
 import domain.db.GameDB;
 import domain.model.Game;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -113,21 +115,108 @@ public class GamesInfo extends HttpServlet {
     }
 
     private String voegToe(HttpServletRequest request){
+        ArrayList<String> errors = new ArrayList<>();
+        
+        Game game = new Game();
+        setTitel(game, request, errors);
+        setOnwikkelaar(game, request, errors);
+        setRelease(game, request, errors);
+        setScore(game, request, errors);
+        setLeeftijd(game, request, errors);
+        setPrijs(game, request, errors);
 
+        if(errors.size()==0){
+            if(games.vindGame(game.getTitel()) != null){
+                errors.add("Deze game is al toegevoegd.");
+            }
+            else{
+                try {
+                    games.voegGameToe(game);
+                    return library(request);
+                } catch(IllegalArgumentException e) {
+                    errors.add(e.getMessage());
+                }
+            }
+        }
+        request.setAttribute("errors", errors);
+        return "gameToevoegen.jsp";
+    }
+
+    private void setTitel(Game game, HttpServletRequest request, ArrayList<String> errors) {
         String titel = request.getParameter("titel");
+
+        try{
+            game.setTitel(titel);
+            request.setAttribute("vorigeTitel", titel);
+        } catch(DomainException e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setOnwikkelaar(Game game, HttpServletRequest request, ArrayList<String> errors) {
         String ontwikkelaar = request.getParameter("ontwikkelaar");
+
+        try{
+            game.setOntwikkelaar(ontwikkelaar);
+            request.setAttribute("vorigeOntwikkelaar", ontwikkelaar);
+        } catch(DomainException e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setRelease(Game game, HttpServletRequest request, ArrayList<String> errors) {
         String release = request.getParameter("release");
+
+        try{
+            game.setRelease(LocalDate.parse(release));
+            request.setAttribute("vorigeRelease", release);
+        }catch(DateTimeException e){
+            errors.add("Release mag niet leeg zijn.");
+        }
+        catch(DomainException e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setScore(Game game, HttpServletRequest request, ArrayList<String> errors) {
         String score = request.getParameter("score");
+
+        try{
+            game.setScore(Integer.parseInt(score));
+            request.setAttribute("vorigeScore", score);
+        }
+        catch(NumberFormatException e){
+        }
+        catch(DomainException e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setLeeftijd(Game game, HttpServletRequest request, ArrayList<String> errors) {
         String leeftijd = request.getParameter("leeftijd");
+
+        try{
+            game.setLeeftijd(Integer.parseInt(leeftijd));
+            request.setAttribute("vorigeLeeftijd", leeftijd);
+        } catch(NumberFormatException e){
+            errors.add("Leeftijd mag niet leeg zijn.");
+        }
+        catch(DomainException e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setPrijs(Game game, HttpServletRequest request, ArrayList<String> errors) {
         String prijs = request.getParameter("prijs");
 
-        if(!titel.isEmpty() && !ontwikkelaar.isEmpty() && !release.isEmpty() && !score.isEmpty() && !leeftijd.isEmpty() && !prijs.isEmpty()){
-            Game game = new Game(titel, ontwikkelaar, LocalDate.parse(release), Double.parseDouble(score), Integer.parseInt(leeftijd), Integer.parseInt(prijs));
-            games.voegGameToe(game);
-            return library(request);
+        try{
+            game.setPrijs(Integer.parseInt(prijs));
+            request.setAttribute("vorigePrijs", prijs);
+        } catch(NumberFormatException e){
+            errors.add("Prijs mag niet leeg zijn.");
         }
-        else{
-            return "gameToevoegen.jsp";
+        catch(DomainException e){
+            errors.add(e.getMessage());
         }
     }
 

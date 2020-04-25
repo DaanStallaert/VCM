@@ -29,7 +29,6 @@
             <th>Score</th>
             <th>Leeftijd</th>
             <th>Prijs</th>
-            <th>Pas aan</th>
             <th>Verwijder</th>
         </tr>
         </thead>
@@ -38,10 +37,9 @@
             <td>${gevondenGame.titel}</td>
             <td>${gevondenGame.ontwikkelaar}</td>
             <td>${gevondenGame.release}</td>
-            <td>${gevondenGame.score}</td>
-            <td>${gevondenGame.leeftijd}</td>
-            <td>${gevondenGame.prijs}</td>
-            <td><a href="gameToevoegen.jsp">Pas aan</a></td>
+            <td>${gevondenGame.score}/5</td>
+            <td>${gevondenGame.leeftijd}+</td>
+            <td>€${gevondenGame.prijs}</td>
             <td><a href="GamesInfo?command=verwijder&titel=${gevondenGame.titel}">Verwijder</a></td>
         </tr>
         </tbody>
