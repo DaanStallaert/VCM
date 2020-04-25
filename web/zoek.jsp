@@ -26,7 +26,7 @@
         </p>
         <input type="hidden" name="command" value="zoek">
         <p>
-            <input type="submit" value="Zoek Game">
+            <input type="submit" id="zoek" value="Zoek Game">
         </p>
     </form>
 </main>

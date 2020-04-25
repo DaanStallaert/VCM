@@ -55,7 +55,7 @@
             <input type="number" id="prijs" name="prijs" value="${vorigePrijs}" required>
         </p>
         <p>
-            <input type="submit" value="Toevoegen">
+            <input type="submit" id="toevoegen" value="Toevoegen">
         </p>
     </form>
 </main>
